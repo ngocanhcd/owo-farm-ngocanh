@@ -336,17 +336,18 @@ async function initializeBot() {
     const token = process.env.TOKEN || config.main.token; // ưu tiên env var
 await client.login(token);
 
-  const express = require("express");
+const express = require("express");
 const app = express();
-const PORT = process.env.PORT || config.socket.expressport;
+const PORT = process.env.PORT; // Render cung cấp port
 
 app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
 
 app.listen(PORT, () => {
+    console.log(`WebUI listening on port ${PORT}`);
     client.logger.info("WebUI", "Startup", `WebUI listening on port ${PORT}`);
 });
 
-// WebSocket vẫn giữ nguyên
+// Khởi tạo WebSocket
 if (config.extra.enable) {
     initializeWebSocket(client, extrac);
 } else {
