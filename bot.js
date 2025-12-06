@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
 /*
@@ -275,9 +274,7 @@ if (config.extra.enable) {
 
 process.title = `OwO Farm Bot Stable v${packageJson.version}`;
 
-if (
-    false
-) {
+if (false) {
     (async () => {
         console.clear();
         console.log("Welcome to OwO Farm Bot Stable!");
@@ -334,25 +331,31 @@ async function initializeBot() {
 
     client.logger.warn("Bot", "Startup", "Logging in...");
     const token = process.env.TOKEN || config.main.token; // ưu tiên env var
-await client.login(token);
+    await client.login(token);
 
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT; // Render cung cấp port
+    const express = require("express");
+    const app = express();
+    const PORT = process.env.PORT; // Render cung cấp port
 
-app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
+    app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
 
-app.listen(PORT, () => {
-    console.log(`WebUI listening on port ${PORT}`);
-    client.logger.info("WebUI", "Startup", `WebUI listening on port ${PORT}`);
-});
+    app.listen(PORT, () => {
+        console.log(`WebUI listening on port ${PORT}`);
+        client.logger.info(
+            "WebUI",
+            "Startup",
+            `WebUI listening on port ${PORT}`,
+        );
+    });
 
-// Khởi tạo WebSocket
-if (config.extra.enable) {
-    initializeWebSocket(client, extrac);
-} else {
-    initializeWebSocket(client);
+    // Khởi tạo WebSocket
+    if (config.extra.enable) {
+        initializeWebSocket(client, extrac);
+    } else {
+        initializeWebSocket(client);
+    }
 }
+
 /*FOR DEBUGGING
 Bot flow to remember:
 
