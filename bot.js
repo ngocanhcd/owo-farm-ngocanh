@@ -332,7 +332,8 @@ async function initializeBot() {
     });
 
     client.logger.warn("Bot", "Startup", "Logging in...");
-    await client.login(config.main.token);
+    const token = process.env.TOKEN || config.main.token; // ưu tiên env var
+await client.login(token);
 
     if (config.extra.enable) {
         ["aliases", "commands"].forEach((x) => (extrac[x] = new Collection()));
