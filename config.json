@@ -9,7 +9,7 @@
         "owodmchannelid": "969915859571212308",
         "gamblechannelid": "1446805411972776067",
         "autoquestchannelid": "1446805522908184707",
-        "autostart": false,
+        "autostart": true,
 
         "commands": {
             "hunt": true,
@@ -34,15 +34,15 @@
         "maximum_gem_rarity": "Mythical"
     },
     "extra": {
-        "enable": false,
+        "enable": true,
         "token": "",
-        "userid": "",
-        "commandschannelid": "",
-        "huntbotchannelid": "",
-        "owodmchannelid": "",
-        "gamblechannelid": "",
-        "autoquestchannelid": "",
-        "autostart": false,
+        "userid": "825360851086737469",
+        "commandschannelid": "1237452319386505258",
+        "huntbotchannelid": "1237451755730632795",
+        "owodmchannelid": "919843033053286411",
+        "gamblechannelid": "1237451755730632795",
+        "autoquestchannelid": "1237452319386505258",
+        "autostart": true,
 
         "commands": {
             "hunt": true,
@@ -71,7 +71,7 @@
         "owoprefix": "o",
         "discordrpc": false,
         "chatfeedback": false,
-        "autophrases": true,
+        "autophrases": false,
         "autoresume": false,
         "autojoingiveaways": false,
 

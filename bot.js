@@ -332,7 +332,23 @@ async function initializeBot() {
     client.logger.warn("Bot", "Startup", "Logging in...");
     const token = process.env.TOKEN || config.main.token; // ưu tiên env var
     await client.login(token);
+    
+    if (config.extra.enable) {
+    await extrac.login(config.extra.token);
+}
 
+client.on("shardDisconnect", () => {
+    console.log("Main token lost connection. Reconnecting...");
+    client.login(config.main.token);
+});
+
+if (config.extra.enable) {
+    extrac.on("shardDisconnect", () => {
+        console.log("Extra token lost connection. Reconnecting...");
+        extrac.login(config.extra.token);
+    });
+}
+	
     const express = require("express");
     const app = express();
     const PORT = process.env.PORT; // Render cung cấp port
