@@ -330,22 +330,24 @@ async function initializeBot() {
     });
 
     client.logger.warn("Bot", "Startup", "Logging in...");
-    const token = process.env.TOKEN || config.main.token; // ưu tiên env var
-    await client.login(token);
-    
-    if (config.extra.enable) {
-    await extrac.login(config.extra.token);
+    const mainToken = process.env.TOKEN_MAIN || config.main.token;
+const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
+
+await client.login(mainToken);
+
+if (config.extra.enable) {
+    await extrac.login(extraToken);
 }
 
 client.on("shardDisconnect", () => {
     console.log("Main token lost connection. Reconnecting...");
-    client.login(config.main.token);
+    client.login(mainToken);
 });
 
 if (config.extra.enable) {
     extrac.on("shardDisconnect", () => {
         console.log("Extra token lost connection. Reconnecting...");
-        extrac.login(config.extra.token);
+        extrac.login(extraToken);
     });
 }
 	

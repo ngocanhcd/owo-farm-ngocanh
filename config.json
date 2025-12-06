@@ -9,7 +9,7 @@
         "owodmchannelid": "969915859571212308",
         "gamblechannelid": "1446805411972776067",
         "autoquestchannelid": "1446805522908184707",
-        "autostart": true,
+        "autostart": false,
 
         "commands": {
             "hunt": true,
@@ -42,7 +42,7 @@
         "owodmchannelid": "919843033053286411",
         "gamblechannelid": "1237451755730632795",
         "autoquestchannelid": "1237452319386505258",
-        "autostart": true,
+        "autostart": false,
 
         "commands": {
             "hunt": true,
