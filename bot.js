@@ -1,3 +1,25 @@
+const express = require("express");
+const app = express();
+
+// Render sẽ cấp port qua env var
+const PORT = process.env.PORT || config.socket.expressport;
+
+// Tạo route test để Render kiểm tra port
+app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
+
+// Start WebUI để Render thấy port đang lắng nghe
+app.listen(PORT, () => {
+    console.log(`WebUI listening on port ${PORT}`);
+});
+
+// Nếu bạn dùng initializeWebSocket
+client.logger.info(
+    "WebUI",
+    "Startup",
+    `WebUI started on http://localhost:${PORT}`,
+);
+initializeWebSocket(client);
+
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
 /*
