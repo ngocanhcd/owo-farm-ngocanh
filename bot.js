@@ -1,24 +1,3 @@
-const express = require("express");
-const app = express();
-
-// Render sẽ cấp port qua env var
-const PORT = process.env.PORT || config.socket.expressport;
-
-// Tạo route test để Render kiểm tra port
-app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
-
-// Start WebUI để Render thấy port đang lắng nghe
-app.listen(PORT, () => {
-    console.log(`WebUI listening on port ${PORT}`);
-});
-
-// Nếu bạn dùng initializeWebSocket
-client.logger.info(
-    "WebUI",
-    "Startup",
-    `WebUI started on http://localhost:${PORT}`,
-);
-initializeWebSocket(client);
 
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
@@ -357,30 +336,22 @@ async function initializeBot() {
     const token = process.env.TOKEN || config.main.token; // ưu tiên env var
 await client.login(token);
 
-    if (config.extra.enable) {
-        ["aliases", "commands"].forEach((x) => (extrac[x] = new Collection()));
+  const express = require("express");
+const app = express();
+const PORT = process.env.PORT || config.socket.expressport;
 
-        fs.readdirSync("./handlers").forEach((file) => {
-            require(`./handlers/${file}`)(extrac);
-        });
-        extrac.logger.warn("Bot", "Startup", "Logging in...");
-        await extrac.login(config.extra.token);
-        client.logger.info(
-            "WebUI",
-            "Startup",
-            `WebUI started on http://localhost:${config.socket.expressport}`,
-        );
-        initializeWebSocket(client, extrac);
-    } else {
-        client.logger.info(
-            "WebUI",
-            "Startup",
-            `WebUI started on http://localhost:${config.socket.expressport}`,
-        );
-        initializeWebSocket(client);
-    }
+app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
+
+app.listen(PORT, () => {
+    client.logger.info("WebUI", "Startup", `WebUI listening on port ${PORT}`);
+});
+
+// WebSocket vẫn giữ nguyên
+if (config.extra.enable) {
+    initializeWebSocket(client, extrac);
+} else {
+    initializeWebSocket(client);
 }
-
 /*FOR DEBUGGING
 Bot flow to remember:
 
