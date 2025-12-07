@@ -340,12 +340,26 @@ async function initializeBot() {
     console.log("Render Health Check READY");
 
     // -------- CHẠY DISCORD LOGIN SAU --------
-    ["aliases", "commands"].forEach((x) => (client[x] = new Collection()));
-    if (config.extra.enable) {
-    fs.readdirSync("./handlers").forEach((file) => {
+    // Tạo Collection cho MAIN
+["aliases", "commands"].forEach(x => client[x] = new Collection());
+
+// Nếu bật Extra → tạo Collection cho EXTRA
+if (config.extra.enable) {
+    ["aliases", "commands"].forEach(x => extrac[x] = new Collection());
+}
+
+// Load handlers cho MAIN
+fs.readdirSync("./handlers").forEach(file => {
+    require(`./handlers/${file}`)(client);
+});
+
+// Load handlers cho EXTRA
+if (config.extra.enable) {
+    fs.readdirSync("./handlers").forEach(file => {
         require(`./handlers/${file}`)(extrac);
     });
 }
+
 
 
     client.logger.warn("Bot", "Startup", "Logging in Discord...");
@@ -360,10 +374,6 @@ console.log("EXTRA TOKEN:", extraToken ? "OK" : "EMPTY!!");
 
 // Login main
 await client.login(mainToken);
-if (config.extra.enable) {
-    extrac.commands = client.commands;
-    extrac.aliases = client.aliases;
-}
 
 // Login extra
 if (config.extra.enable) {
@@ -371,7 +381,6 @@ if (config.extra.enable) {
     await extrac.login(extraToken);
     console.log("Extra logged in!");
 }
-
 }
 
 
