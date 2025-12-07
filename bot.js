@@ -85,6 +85,9 @@ try {
     config = require("./config.json");
 }
 
+config.main.token = process.env.TOKEN_MAIN || config.main.token;
+config.extra.token = process.env.TOKEN_EXTRA || config.extra.token;
+
 const isTermux =
     process.env.PREFIX && process.env.PREFIX.includes("com.termux");
 const packageJson = require("./package.json");
