@@ -19,7 +19,7 @@
             "huntbot": {
                 "enable": true,
                 "maxtime": 10,
-                "upgrade": false,
+                "upgrade": true,
                 "upgradetype": "duration"
             },
             "gamble": {
@@ -34,7 +34,7 @@
         "maximum_gem_rarity": "Mythical"
     },
     "extra": {
-        "enable": true,
+        "enable": false,
         "token": "",
         "userid": "825360851086737469",
         "commandschannelid": "1237452319386505258",
@@ -51,13 +51,13 @@
             "curse": true,
             "huntbot": {
                 "enable": true,
-                "maxtime": 10,
-                "upgrade": false,
+                "maxtime": 24,
+                "upgrade": true,
                 "upgradetype": "duration"
             },
             "tomain": true,
             "gamble": {
-                "coinflip": true,
+                "coinflip": false,
                 "slot": true
             },
             "animals": false,
@@ -139,23 +139,23 @@
     "animals": {
         "type": {
             "sell": false,
-            "sacrifice": false
+            "sacrifice": true
         },
         "animaltype": {
-            "common": false,
-            "uncommon": false,
-            "rare": false,
-            "epic": false,
-            "mythical": false,
-            "patreon": false,
-            "cpatreon": false,
-            "legendary": false,
-            "gem": false,
-            "bot": false,
-            "distorted": false,
-            "fabled": false,
-            "special": false,
-            "hidden": false
+            "common": true,
+            "uncommon": true,
+            "rare": true,
+            "epic": true,
+            "mythical": true,
+            "patreon": true,
+            "cpatreon": true,
+            "legendary": true,
+            "gem": true,
+            "bot": true,
+            "distorted": true,
+            "fabled": true,
+            "special": true,
+            "hidden": true
         }
     },
     "interval": {
