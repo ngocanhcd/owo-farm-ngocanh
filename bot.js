@@ -341,9 +341,12 @@ async function initializeBot() {
 
     // -------- CHẠY DISCORD LOGIN SAU --------
     ["aliases", "commands"].forEach((x) => (client[x] = new Collection()));
+    if (config.extra.enable) {
     fs.readdirSync("./handlers").forEach((file) => {
-        require(`./handlers/${file}`)(client);
+        require(`./handlers/${file}`)(extrac);
     });
+}
+
 
     client.logger.warn("Bot", "Startup", "Logging in Discord...");
 
@@ -357,6 +360,10 @@ console.log("EXTRA TOKEN:", extraToken ? "OK" : "EMPTY!!");
 
 // Login main
 await client.login(mainToken);
+if (config.extra.enable) {
+    extrac.commands = client.commands;
+    extrac.aliases = client.aliases;
+}
 
 // Login extra
 if (config.extra.enable) {
