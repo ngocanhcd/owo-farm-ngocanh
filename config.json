@@ -4,18 +4,18 @@
     "main": {
         "token": "",
         "userid": "498837387158355988",
-        "commandschannelid": "1237452319386505258",
-        "huntbotchannelid": "1237451755730632795",
+        "commandschannelid": "1447068478346362931",
+        "huntbotchannelid": "1447068567001501838",
         "owodmchannelid": "969915859571212308",
-        "gamblechannelid": "1446805411972776067",
+        "gamblechannelid": "1447068623750430760",
         "autoquestchannelid": "1446805522908184707",
-        "autostart": false,
+        "autostart": true,
 
         "commands": {
             "hunt": true,
             "battle": true,
             "pray": true,
-            "curse": true,
+            "curse": false,
             "huntbot": {
                 "enable": true,
                 "maxtime": 10,
@@ -37,12 +37,12 @@
         "enable": true,
         "token": "",
         "userid": "825360851086737469",
-        "commandschannelid": "1237452319386505258",
-        "huntbotchannelid": "1237451755730632795",
+        "commandschannelid": "1237451755730632795",
+        "huntbotchannelid": "1237452319386505258",
         "owodmchannelid": "919843033053286411",
-        "gamblechannelid": "1237451755730632795",
-        "autoquestchannelid": "1237452319386505258",
-        "autostart": false,
+        "gamblechannelid": "1237454780490715177",
+        "autoquestchannelid": "1237460044220465382",
+        "autostart": true,
 
         "commands": {
             "hunt": true,

@@ -323,56 +323,36 @@ if (false) {
 }
 
 async function initializeBot() {
-    ["aliases", "commands"].forEach((x) => (client[x] = new Collection()));
+    const express = require("express");
+    const app = express();
+    const PORT = process.env.PORT || 3000;
 
+    // WebUI READY ngay khi deploy
+    app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
+    app.listen(PORT, () => {
+        console.log("WebUI ready on port " + PORT);
+    });
+
+    // CHO RENDER DETECT SERVICE READY
+    console.log("Render Health Check READY");
+
+    // -------- CHẠY DISCORD LOGIN SAU --------
+    ["aliases", "commands"].forEach((x) => (client[x] = new Collection()));
     fs.readdirSync("./handlers").forEach((file) => {
         require(`./handlers/${file}`)(client);
     });
 
-    client.logger.warn("Bot", "Startup", "Logging in...");
+    client.logger.warn("Bot", "Startup", "Logging in Discord...");
     const mainToken = process.env.TOKEN_MAIN || config.main.token;
-const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
+    const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
 
-await client.login(mainToken);
+    await client.login(mainToken);
 
-if (config.extra.enable) {
-    await extrac.login(extraToken);
-}
-
-client.on("shardDisconnect", () => {
-    console.log("Main token lost connection. Reconnecting...");
-    client.login(mainToken);
-});
-
-if (config.extra.enable) {
-    extrac.on("shardDisconnect", () => {
-        console.log("Extra token lost connection. Reconnecting...");
-        extrac.login(extraToken);
-    });
-}
-	
-    const express = require("express");
-    const app = express();
-    const PORT = process.env.PORT; // Render cung cấp port
-
-    app.get("/", (req, res) => res.send("OwO Farm Bot is running!"));
-
-    app.listen(PORT, () => {
-        console.log(`WebUI listening on port ${PORT}`);
-        client.logger.info(
-            "WebUI",
-            "Startup",
-            `WebUI listening on port ${PORT}`,
-        );
-    });
-
-    // Khởi tạo WebSocket
     if (config.extra.enable) {
-        initializeWebSocket(client, extrac);
-    } else {
-        initializeWebSocket(client);
+        await extrac.login(extraToken);
     }
 }
+
 
 /*FOR DEBUGGING
 Bot flow to remember:
