@@ -37,11 +37,11 @@
         "enable": true,
         "token": "",
         "userid": "787670621739155497",
-        "commandschannelid": "1447068478346362931",
-        "huntbotchannelid": "1447068567001501838",
+        "commandschannelid": "1447183119651438632",
+        "huntbotchannelid": "1447183136327860265",
         "owodmchannelid": "926693359899254814",
-        "gamblechannelid": "1447068623750430760",
-        "autoquestchannelid": "1446805522908184707",
+        "gamblechannelid": "1447183147170009252",
+        "autoquestchannelid": "1447183159966830705",
         "autostart": true,
 
         "commands": {
