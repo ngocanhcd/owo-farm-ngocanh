@@ -34,7 +34,7 @@
         "maximum_gem_rarity": "Mythical"
     },
     "extra": {
-        "enable": true,
+        "enable": false,
         "token": "",
         "userid": "825360851086737469",
         "commandschannelid": "1237451755730632795",
