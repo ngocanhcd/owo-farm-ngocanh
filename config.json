@@ -72,7 +72,7 @@
         "discordrpc": false,
         "chatfeedback": false,
         "autophrases": false,
-        "autoresume": false,
+        "autoresume": true,
         "autojoingiveaways": false,
 
         "checklist": {

@@ -346,8 +346,6 @@ async function initializeBot() {
     });
 
     client.logger.warn("Bot", "Startup", "Logging in Discord...");
-    const mainToken = process.env.TOKEN_MAIN || config.main.token;
-    const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
 
     await client.login(mainToken);
 
