@@ -36,12 +36,12 @@
     "extra": {
         "enable": true,
         "token": "",
-        "userid": "787670621739155497",
-        "commandschannelid": "1447118803359236147",
-        "huntbotchannelid": "1447118843238416519",
-        "owodmchannelid": "926693359899254814",
-        "gamblechannelid": "1447118872372314153",
-        "autoquestchannelid": "1447118899698208778",
+        "userid": "825360851086737469",
+        "commandschannelid": "1237452319386505258",
+        "huntbotchannelid": "1237451755730632795",
+        "owodmchannelid": "919843033053286411",
+        "gamblechannelid": "1237454780490715177",
+        "autoquestchannelid": "1237460044220465382",
         "autostart": true,
 
         "commands": {
