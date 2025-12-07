@@ -346,13 +346,25 @@ async function initializeBot() {
     });
 
     client.logger.warn("Bot", "Startup", "Logging in Discord...");
-    const mainToken = process.env.TOKEN_MAIN || config.main.token;
-    const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
-    await client.login(mainToken);
 
-    if (config.extra.enable) {
-        await extrac.login(extraToken);
-    }
+// Lấy token
+const mainToken = process.env.TOKEN_MAIN || config.main.token;
+const extraToken = process.env.TOKEN_EXTRA || config.extra.token;
+
+// Debug
+console.log("MAIN TOKEN:", mainToken ? "OK" : "EMPTY!!");
+console.log("EXTRA TOKEN:", extraToken ? "OK" : "EMPTY!!");
+
+// Login main
+await client.login(mainToken);
+
+// Login extra
+if (config.extra.enable) {
+    console.log("Logging extra account...");
+    await extrac.login(extraToken);
+    console.log("Extra logged in!");
+}
+
 }
 
 
